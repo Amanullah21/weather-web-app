@@ -1,0 +1,21 @@
+*{
+    margin-top: 0px;
+}
+.bold{
+    font-weight: 700;
+}
+.dark{
+    font-weight: 900;
+}
+.light{
+    font-weight: 300;
+}
+.sup{
+   font-size: 12px; 
+}
+.yellow{
+    color: yellow;
+}
+.deg{
+    font-size: 35px;
+}

@@ -1,0 +1,42 @@
+.hourly_container {
+  height: 400px;
+  margin: 5px 20px;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 4px 6px #f0f0f0;
+  /* background-color: aqua; */
+}
+.current_temp {
+  display: flex;
+  padding-left: 20px;
+  /* background-color: bisque; */
+}
+.hourly_sun{
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.hourly_graph{
+    height: 100px;
+    /* background-color: cadetblue; */
+}
+.pre_container{
+    height: 50px;
+    /* background-color: cyan; */
+    display: flex;
+}
+.pre_container>div{
+    height: 40px;
+    border-radius: 5px;
+    background-color: #f5faff;
+    width: 45%;
+    margin: 5px;
+    text-align: center;
+    padding-top: 2px;
+}
+
+.hourly_graph_sunset{
+    height: 180px;
+    border-radius: 10px;
+    /* background-color: gray; */
+}

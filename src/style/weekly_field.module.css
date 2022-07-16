@@ -1,0 +1,12 @@
+.Weekly_field{
+    height: 100px;   
+    margin:20px 20px 5px 20px;
+    display: flex;
+}
+.Weekly_field_box{
+    width: 24%;
+    text-align: center;
+}
+.Weekly_field_box:hover{
+    border: 2px solid #3da9e9;
+}

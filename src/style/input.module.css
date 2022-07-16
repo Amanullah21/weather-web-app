@@ -1,0 +1,23 @@
+.input_box{
+    margin: 10px 20px;
+    box-shadow: 5px 5px 4px 4px #f0f0f0 ;
+    height: 40px;
+    width: 300px;
+    display: flex;
+    padding: 2px;
+    border-radius: 10px;
+}
+.location_icon{
+    margin: 10px;
+}
+.input_box > input{
+    border: none;
+    width: 200px;
+}
+.input_box > input:active{
+    border: none;
+}
+.input_box >button{
+    border: none;
+    background: white;
+}
