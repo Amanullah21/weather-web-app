@@ -10,17 +10,12 @@ import {
   Tooltip,
   Line,
   XAxis,
-  YAxis,
   CartesianGrid,
 } from "recharts";
 import SunsetSunrise from "./SunsetSunrise";
 
-const Hourly = ({ apiData, current, pdata, icon }) => {
-  const data = [
-    [0, 20],
-    [-30, 40],
-    [-88.9, 9],
-  ];
+const Hourly = ({  current, pdata }) => {
+  
   //   const icon = current.weather[0].icon
   //   console.log(icon,'if')
   return (
@@ -41,7 +36,6 @@ const Hourly = ({ apiData, current, pdata, icon }) => {
           <LineChart data={pdata} margin={{ left: 20, right: 20 }}>
             <CartesianGrid />
             <XAxis dataKey="temp" interval={"preserveStartEnd"} />
-            {/* <YAxis></YAxis> */}
             <Legend />
             <Tooltip />
 
@@ -49,7 +43,7 @@ const Hourly = ({ apiData, current, pdata, icon }) => {
               dataKey="temp"
               className="bold"
               stroke="#47adea"
-              activeDot={{ r: 8 }}
+              activeDot={{ r: 5 }}
             />
           </LineChart>
         </ResponsiveContainer>

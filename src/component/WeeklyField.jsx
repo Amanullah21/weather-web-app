@@ -1,13 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import style from "../style/weekly_field.module.css";
 import "../style/globel.css";
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import { Carousel } from "react-responsive-carousel";
-import WbSunnyIcon from "@mui/icons-material/WbSunny";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; 
 import moment from "moment";
 
 const WeeklyField = ({ daily }) => {
-  const [data, setData] = useState([]);
   // const dayCode = moment(data.datetime).day();
   const day = {
     0: "Sun",
@@ -26,7 +23,6 @@ const WeeklyField = ({ daily }) => {
     13: "Sat",
     14: "Sun",
   };
-  let value = 0;
   return (
     <div className={style.Weekly_field}>
       {daily.map((ele, index) => {
@@ -40,7 +36,7 @@ const WeeklyField = ({ daily }) => {
             </div>
             <img
               src={`http://openweathermap.org/img/wn/${ele.weather[0].icon}.png`}
-              alt=""
+              alt="weather"
               className={style.Weekly_field_img}
             />
             <div>{ele.weather[0].main}</div>

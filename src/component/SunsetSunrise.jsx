@@ -15,7 +15,7 @@ const SunsetSunrise = () => {
     series: [
       {
         name: "series-1",
-        data: [6,12,8],
+        data: [6,12,7],
       },
     ],
   });

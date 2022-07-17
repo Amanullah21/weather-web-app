@@ -8,7 +8,8 @@
     text-align: center;
 }
 .Weekly_field_box:hover{
-    border: 2px solid #3da9e9;
+    border:1.5px solid #3da9e9;
+    border-radius: 5px;
 }
 .Weekly_field_img{
     height: 30px;
