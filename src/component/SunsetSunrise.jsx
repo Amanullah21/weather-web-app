@@ -2,7 +2,11 @@ import React, { useState } from 'react'
 import Chart from "react-apexcharts";
 
 
-const SunsetSunrise = () => {
+const SunsetSunrise = ({current}) => {
+  const [sunrise,setSunrise] = useState(0)
+
+  // let sunset= current.senset
+  // console.log(sunset,"seeee")
   const [state, setState] = useState({
     options: {
       chart: {

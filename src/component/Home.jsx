@@ -11,7 +11,6 @@ import App from "../App";
 
 const Home = () => {
   const api_key = "f56f24967aaf51182d1d4df628297c6d";
-  // const api_endpoint = "https://api.openweathermap.org/data/2.5/onecall";
   const [text, setText] = useState("");
   let [apiData, setApiData] = useState({});
   let [daily, setDaily] = useState([]);
@@ -39,6 +38,7 @@ const Home = () => {
     }
   }, [latitude, longitude]);
   // setIcon(current.weather)
+  // console.log(apiData)
   const getWeatherData = (city) => {
     const apiURL =
       "https://api.openweathermap.org/data/2.5/weather?q=" +

@@ -1,7 +1,7 @@
 import React from "react";
 import style from "../style/weekly_field.module.css";
 import "../style/globel.css";
-import "react-responsive-carousel/lib/styles/carousel.min.css"; 
+// import "react-responsive-carousel/lib/styles/carousel.min.css"; 
 import moment from "moment";
 
 const WeeklyField = ({ daily }) => {
