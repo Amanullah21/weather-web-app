@@ -4,9 +4,13 @@
     display: flex;
 }
 .Weekly_field_box{
-    width: 24%;
+    width: 15%;
     text-align: center;
 }
 .Weekly_field_box:hover{
     border: 2px solid #3da9e9;
+}
+.Weekly_field_img{
+    height: 30px;
+    width: 30px;
 }

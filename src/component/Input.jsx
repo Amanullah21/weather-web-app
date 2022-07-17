@@ -5,11 +5,11 @@ import style from "../style/input.module.css";
 import SearchIcon from "@mui/icons-material/Search";
 import PlaceIcon from "@mui/icons-material/Place";
 
-const Input = () => {
-  const [text, setText] = useState("Patna, Bihar");
-  const searchHandler = () => {
-    console.log(text);
-  };
+const Input = ({apiData,haldleSearch}) => {
+  const [text, setText] = useState(apiData?.name);
+  // const searchHandler = () => {
+  //   console.log(text);
+  // };
   return (
     <div className={style.input_box}>
       <PlaceIcon className={style.location_icon}/>
@@ -19,9 +19,10 @@ const Input = () => {
         className="bold"
         id="input_field"
         defaultValue={text}
+        placeholder="Enter Your Location"
         onChange={(e) => setText(e.target.value)}
       />
-      <button onClick={searchHandler}>
+      <button onClick={() =>haldleSearch(text)}>
         <SearchIcon />
       </button>
     </div>

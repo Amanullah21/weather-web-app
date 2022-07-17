@@ -1,5 +1,5 @@
 .hourly_container {
-  height: 400px;
+  height: 430px;
   margin: 5px 20px;
   padding: 10px;
   border-radius: 10px;
@@ -31,12 +31,27 @@
     background-color: #f5faff;
     width: 45%;
     margin: 5px;
+    
     text-align: center;
     padding-top: 2px;
 }
 
 .hourly_graph_sunset{
     height: 180px;
+    margin-top: 10px;
     border-radius: 10px;
     /* background-color: gray; */
+}
+.hourly_graph_sunset > div{
+    /* height: 30px; */
+    margin: 5px;
+    padding-left: 5px;
+    display: flex;
+    gap: 30%;
+    text-align: center;
+    
+}
+.hourly_graph_sunset > div>div{
+    width: 50%;
+    padding-bottom: 20px;
 }
