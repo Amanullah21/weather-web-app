@@ -23,6 +23,7 @@ const Home = () => {
   let [hourly, setHourly] = useState([]);
   let [error, setError] = useState(false);
   let [cTemp, setCTemp] = useState(0);
+  // let [senSet,setSunSet] = useState(null)
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((pos) => {
@@ -35,7 +36,6 @@ const Home = () => {
     if (latitude !== "" && longitude !== "") {
       axios.get(finalApi).then((response) => {
         // setApiData(response.data)
-        // console.log(response.data);
         setDaily(response.data.daily);
         setCurrent(response.data.current);
         setHourly(response.data.hourly);
@@ -43,6 +43,9 @@ const Home = () => {
       });
     }
   }, [latitude, longitude]);
+
+  // console.log(senSet,"sunset")
+
   const getWeatherData = (city) => {
     const apiURL =
       "https://api.openweathermap.org/data/2.5/weather?q=" +

@@ -1,5 +1,5 @@
 .hourly_container {
-  height: 430px;
+  height: 500px;
   margin: 5px 20px;
   padding: 10px;
   border-radius: 10px;
@@ -17,8 +17,8 @@
 }
 
 .hourly_graph{
-    height: 100px;
-    /* background-color: cadetblue; */
+    height: 150px;
+    background-color: cadetblue;
 }
 .pre_container{
     height: 50px;

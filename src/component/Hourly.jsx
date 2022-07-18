@@ -1,24 +1,33 @@
-import React, { useState } from "react";
+import React from "react";
 import style from "../style/hourly.module.css";
 import WbSunnyIcon from "@mui/icons-material/WbSunny";
 import Chart from "react-apexcharts";
 
-const Hourly = ({  current,cTemp }) => {
-  const [state, setState] = useState({
+const Hourly = ({ current, cTemp }) => {
+  let sunSet = current.sunset;
+  let sunRise = current.sunrise
+  
+  let curentSunrise = new Date(sunRise*1000).toLocaleTimeString()
+  let curentsunSet = new Date(sunSet*1000).toLocaleTimeString()
+
+  const currentTime = new Date();
+  const time = (currentTime).toLocaleTimeString("en-US");
+
+
+  const state = {
     options: {
       chart: {
         id: "basic-bar",
       },
       xaxis: {
-        categories: ['9AM','10AM' ,'11AM','12PM','1PM','3PM'],
-        categories1:[6,12,7]
+        categories: ["9AM ", "10AM", "11AM", "12PM", "1PM", "3PM"],
       },
     },
-    
+
     series: [
       {
-        name: "temp",
-        data: [cTemp-3,  cTemp-2,cTemp-1,cTemp,cTemp, cTemp-3],
+        name: "Temperature",
+        data: [cTemp - 6, cTemp - 3, cTemp - 1, cTemp, +cTemp + 1, cTemp - 3],
       },
     ],
     options1: {
@@ -26,16 +35,16 @@ const Hourly = ({  current,cTemp }) => {
         id: "basic-bar",
       },
       xaxis: {
-        categories:['6AM','1PM','7Pm']
+        categories: ["6AM", "1PM", "7Pm"],
       },
     },
     series1: [
       {
-        name: "temp",
-        data:[cTemp-5,cTemp,cTemp-9]
+        name: "Sunset & Sunrise Time",
+        data: [curentSunrise, time, curentsunSet],
       },
     ],
-  });
+  };
   return (
     <div className={style.hourly_container}>
       <div className={style.current_temp}>
@@ -49,12 +58,12 @@ const Hourly = ({  current,cTemp }) => {
         </div>
       </div>
       <div className={style.hourly_graph}>
-      <Chart
+        <Chart
           options={state.options}
           series={state.series}
           type="line"
           width="280"
-          height='110'
+          height="160"
         />
       </div>
       <div className={style.pre_container}>
@@ -79,14 +88,14 @@ const Hourly = ({  current,cTemp }) => {
           </div>
         </div>
         <div>
-        <Chart
-          options={state.options1}
-          series={state.series1}
-          type="area"
-          width="280"
-          height='160'
-        />
-      </div>
+          <Chart
+            options={state.options1}
+            series={state.series1}
+            type="area"
+            width="280"
+            height="160"
+          />
+        </div>
       </div>
     </div>
   );
