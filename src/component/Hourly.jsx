@@ -5,14 +5,12 @@ import Chart from "react-apexcharts";
 
 const Hourly = ({ current, cTemp }) => {
   let sunSet = current.sunset;
-  let sunRise = current.sunrise
-  
-  let curentSunrise = new Date(sunRise*1000).toLocaleTimeString()
-  let curentsunSet = new Date(sunSet*1000).toLocaleTimeString()
+  let sunRise = current.sunrise;
+  let curentSunrise = new Date(sunRise * 1000).toLocaleTimeString();
+  let curentsunSet = new Date(sunSet * 1000).toLocaleTimeString();
 
   const currentTime = new Date();
-  const time = (currentTime).toLocaleTimeString("en-US");
-
+  const time = currentTime.toLocaleTimeString("en-US");
 
   const state = {
     options: {
@@ -35,7 +33,7 @@ const Hourly = ({ current, cTemp }) => {
         id: "basic-bar",
       },
       xaxis: {
-        categories: ["6AM", time, "7Pm"],
+        categories: [curentSunrise, time, curentsunSet],
       },
     },
     series1: [
@@ -54,6 +52,7 @@ const Hourly = ({ current, cTemp }) => {
           </h1>
         </div>
         <div className={style.hourly_sun}>
+          
           <WbSunnyIcon fontSize="large" className="orange" />
         </div>
       </div>

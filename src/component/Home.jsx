@@ -42,8 +42,6 @@ const Home = () => {
     }
   }, [latitude, longitude]);
 
-  // console.log(senSet,"sunset")
-
   const getWeatherData = (city) => {
     const apiURL =
       "https://api.openweathermap.org/data/2.5/weather?q=" +

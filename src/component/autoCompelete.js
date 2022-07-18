@@ -38,7 +38,6 @@ const stateCapital = [
   { title: "Raipur" },
   { title: "Panaji" },
   { title: "Gandhinagar" },
-  { title: "Chandigarh" },
   { title: "Shimla" },
   { title: "Bengaluru" },
   { title: "Thiruvananthapuram" },

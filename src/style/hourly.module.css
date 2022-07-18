@@ -4,9 +4,6 @@
   padding: 10px;
   border-radius: 10px;
   box-shadow: 5px 5px 4px 6px #f0f0f0;
-  /* background-color: aqua; */
-  /* filter: drop-shadow(5px 5px 10px #000); */
-
 }
 .current_temp {
   display: flex;
