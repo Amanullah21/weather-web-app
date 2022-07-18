@@ -1,23 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
 import style from "../style/hourly.module.css";
 import WbSunnyIcon from "@mui/icons-material/WbSunny";
+import Chart from "react-apexcharts";
 
-// import LineGraph from "react-line-graph";
-import {
-  LineChart,
-  ResponsiveContainer,
-  Legend,
-  Tooltip,
-  Line,
-  XAxis,
-  CartesianGrid,
-} from "recharts";
-import SunsetSunrise from "./SunsetSunrise";
-
-const Hourly = ({  current, pdata, error }) => {
-  // console.log(error)
-  //   const icon = current.weather[0].icon
-  //   console.log(icon,'if')
+const Hourly = ({  current,cTemp }) => {
+  const [state, setState] = useState({
+    options: {
+      chart: {
+        id: "basic-bar",
+      },
+      xaxis: {
+        categories: ['9AM','10AM' ,'11AM','12PM','1PM','3PM'],
+        categories1:[6,12,7]
+      },
+    },
+    
+    series: [
+      {
+        name: "temp",
+        data: [cTemp-3,  cTemp-2,cTemp-1,cTemp,cTemp, cTemp-3],
+      },
+    ],
+    options1: {
+      chart: {
+        id: "basic-bar",
+      },
+      xaxis: {
+        categories:['6AM','1PM','7Pm']
+      },
+    },
+    series1: [
+      {
+        name: "temp",
+        data:[cTemp-5,cTemp,cTemp-9]
+      },
+    ],
+  });
   return (
     <div className={style.hourly_container}>
       <div className={style.current_temp}>
@@ -27,26 +45,17 @@ const Hourly = ({  current, pdata, error }) => {
           </h1>
         </div>
         <div className={style.hourly_sun}>
-          <WbSunnyIcon fontSize="large" className="yellow" />
-          {/* <img src={`http://openweathermap.org/img/wn/${current.weather[0].icon}.png`} alt="icon" /> */}
+          <WbSunnyIcon fontSize="large" className="orange" />
         </div>
       </div>
       <div className={style.hourly_graph}>
-        <ResponsiveContainer width="100%" aspect={0}>
-          <LineChart data={pdata} margin={{ left: 20, right: 20 }}>
-            <CartesianGrid />
-            <XAxis dataKey="temp" interval={"preserveStartEnd"} />
-            <Legend />
-            <Tooltip />
-
-            <Line
-              dataKey="Temp"
-              className="bold"
-              stroke="#47adea"
-              activeDot={{ r: 5 }}
-            />
-          </LineChart>
-        </ResponsiveContainer>
+      <Chart
+          options={state.options}
+          series={state.series}
+          type="line"
+          width="280"
+          height='110'
+        />
       </div>
       <div className={style.pre_container}>
         <div>
@@ -69,7 +78,15 @@ const Hourly = ({  current, pdata, error }) => {
             <div>{new Date(current?.sunset * 1000).toLocaleTimeString()}</div>
           </div>
         </div>
-        <SunsetSunrise current={current} />
+        <div>
+        <Chart
+          options={state.options1}
+          series={state.series1}
+          type="area"
+          width="280"
+          height='160'
+        />
+      </div>
       </div>
     </div>
   );

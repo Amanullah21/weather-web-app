@@ -6,8 +6,7 @@ import WeeklyField from "./WeeklyField";
 import style1 from "../style/input.module.css";
 import SearchIcon from "@mui/icons-material/Search";
 import PlaceIcon from "@mui/icons-material/Place";
-import stateCapital from "./autoCompelete"
-import App from "../App";
+import stateCapital from "./autoCompelete";
 
 import TextField from "@mui/material/TextField";
 import Stack from "@mui/material/Stack";
@@ -22,7 +21,8 @@ const Home = () => {
   const [latitude, setlatitude] = useState("");
   const [longitude, setlongitude] = useState("");
   let [hourly, setHourly] = useState([]);
-  let [error,setError] = useState(false)
+  let [error, setError] = useState(false);
+  let [cTemp, setCTemp] = useState(0);
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((pos) => {
@@ -39,12 +39,10 @@ const Home = () => {
         setDaily(response.data.daily);
         setCurrent(response.data.current);
         setHourly(response.data.hourly);
-      })
-
+        setCTemp((response.data.current.temp - 273.17).toFixed());
+      });
     }
   }, [latitude, longitude]);
-  // setIcon(current.weather)
-  // console.log(apiData)
   const getWeatherData = (city) => {
     const apiURL =
       "https://api.openweathermap.org/data/2.5/weather?q=" +
@@ -58,59 +56,39 @@ const Home = () => {
         setApiData(res.data);
         setlatitude(res.data.coord.lat);
         setlongitude(res.data.coord.lon);
-        setError(false)
+        setError(false);
       })
       .catch((err) => {
         console.log("err", err);
-        setError(true)
-        if(error){
-          alert("जगह का नाम गलत है दोबारा अच्छे से दाली")
-          setError(false)
+        setError(true);
+        if (error) {
+          alert("जगह का नाम गलत है दोबारा अच्छे से दाली");
+          setError(false);
         }
       });
   };
-  
+
   useEffect(() => {
     getWeatherData(text);
   }, []);
-  // console.log(hourly)
-  const pdata = [
-    {
-      Temp: 21,
-    },
-    {
-      Temp: 22,
-    },
-    {
-      Temp: 24,
-    },
-    {
-      Temp: 29,
-    },
-    {
-      Temp: 35,
-    },
-  ];
-
   const handleSearch = () => {
     getWeatherData(text);
   };
-  
+
   return (
     <div className={style.home}>
       <div className={style1.input_box}>
         <PlaceIcon className={style1.location_icon} />
-        <Stack  sx={{ width: 300}}>
+        <Stack sx={{ width: 300 }}>
           <Autocomplete
             freeSolo
             disableClearable
             options={stateCapital.map((option) => option.title)}
             renderInput={(params) => (
               <TextField
-              variant="standard"
-              // size="normal"
-               className="Bold"
-              onSelect={(e) => setText(e.target.value)}
+                variant="standard"
+                className="Bold"
+                onSelect={(e) => setText(e.target.value)}
                 {...params}
                 label="Search Place"
                 InputProps={{
@@ -125,14 +103,14 @@ const Home = () => {
           <SearchIcon />
         </button>
       </div>
-      <WeeklyField daily={daily}  error={error} />
-      <Hourly error={error}
+      <WeeklyField daily={daily} error={error} />
+      <Hourly
+        error={error}
         apiData={apiData}
         current={current}
         hourly={hourly}
-        pdata={pdata}
+        cTemp={cTemp}
       />
-      {/* <App hourly={hourly}/> */}
     </div>
   );
 };

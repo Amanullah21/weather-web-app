@@ -1,11 +1,8 @@
 import React from "react";
 import style from "../style/weekly_field.module.css";
 import "../style/globel.css";
-// import "react-responsive-carousel/lib/styles/carousel.min.css"; 
 import moment from "moment";
-
-const WeeklyField = ({ daily ,error}) => {
-  // const dayCode = moment(data.datetime).day();
+const WeeklyField = ({ daily, error }) => {
   const day = {
     0: "Sun",
     1: "Mon",
@@ -27,7 +24,6 @@ const WeeklyField = ({ daily ,error}) => {
     <div className={style.Weekly_field}>
       {daily.map((ele, index) => {
         const dayCode = moment(ele.dt).day() + index;
-        // console.log(ele.dt);
         return (
           <div className={style.Weekly_field_box}>
             <div className="bold">{day[dayCode]}</div>
@@ -45,6 +41,6 @@ const WeeklyField = ({ daily ,error}) => {
       })}
     </div>
   );
-    }
+};
 
 export default WeeklyField;
