@@ -23,7 +23,6 @@
 }
 .pre_container{
     height: 50px;
-    /* background-color: cyan; */
     display: flex;
 }
 .pre_container>div{
@@ -31,22 +30,19 @@
     border-radius: 5px;
     background-color: #f5faff;
     width: 45%;
-    margin: 5px;
+    margin: 10px;
     
     text-align: center;
-    padding-top: 2px;
+    padding-top: 4px;
 }
 
 .hourly_graph_sunset{
-    height: 180px;
-    margin-top: 10px;
+    height: 230px;
+    margin-top: 15px;
     border-radius: 10px;
-    /* background-color: gray; */
 }
 .hourly_graph_sunset > div{
-    /* height: 30px; */
     margin: 5px;
-    padding-left: 5px;
     display: flex;
     gap: 30%;
     text-align: center;
