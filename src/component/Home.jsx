@@ -64,7 +64,7 @@ const Home = () => {
         console.log("err", err);
         setError(true)
         if(error){
-          alert("Enter Right Place Name")
+          alert("जगह का नाम गलत है दोबारा अच्छे से दाली")
           setError(false)
         }
       });
