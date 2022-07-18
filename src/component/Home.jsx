@@ -4,10 +4,14 @@ import style from "../style/home.module.css";
 import Hourly from "./Hourly";
 import WeeklyField from "./WeeklyField";
 import style1 from "../style/input.module.css";
-// import
 import SearchIcon from "@mui/icons-material/Search";
 import PlaceIcon from "@mui/icons-material/Place";
+import stateCapital from "./autoCompelete"
 import App from "../App";
+
+import TextField from "@mui/material/TextField";
+import Stack from "@mui/material/Stack";
+import Autocomplete from "@mui/material/Autocomplete";
 
 const Home = () => {
   const api_key = "f56f24967aaf51182d1d4df628297c6d";
@@ -18,6 +22,7 @@ const Home = () => {
   const [latitude, setlatitude] = useState("");
   const [longitude, setlongitude] = useState("");
   let [hourly, setHourly] = useState([]);
+  let [error,setError] = useState(false)
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((pos) => {
@@ -30,11 +35,12 @@ const Home = () => {
     if (latitude !== "" && longitude !== "") {
       axios.get(finalApi).then((response) => {
         // setApiData(response.data)
-        console.log(response.data);
+        // console.log(response.data);
         setDaily(response.data.daily);
         setCurrent(response.data.current);
         setHourly(response.data.hourly);
-      });
+      }).catch(()=>setError(true))
+
     }
   }, [latitude, longitude]);
   // setIcon(current.weather)
@@ -82,20 +88,32 @@ const Home = () => {
   const handleSearch = () => {
     getWeatherData(text);
   };
-
+  
   return (
     <div className={style.home}>
       <div className={style1.input_box}>
         <PlaceIcon className={style1.location_icon} />
-        <input
-          type="text"
-          name=""
-          className="bold"
-          id="input_field"
-          defaultValue={text}
-          placeholder="Enter Your Location"
-          onChange={(e) => setText(e.target.value)}
-        />
+        <Stack  sx={{ width: 300}}>
+          <Autocomplete
+            freeSolo
+            disableClearable
+            options={stateCapital.map((option) => option.title)}
+            renderInput={(params) => (
+              <TextField
+              variant="standard"
+              // size="normal"
+               className="Bold"
+              onSelect={(e) => setText(e.target.value)}
+                {...params}
+                label="Search Location"
+                InputProps={{
+                  ...params.InputProps,
+                  type: "search",
+                }}
+              />
+            )}
+          />
+        </Stack>
         <button onClick={handleSearch}>
           <SearchIcon />
         </button>

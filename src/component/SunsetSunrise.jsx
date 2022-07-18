@@ -3,7 +3,7 @@ import Chart from "react-apexcharts";
 
 
 const SunsetSunrise = ({current}) => {
-  const [sunrise,setSunrise] = useState(0)
+  // const [sunrise,setSunrise] = useState(0)
 
   // let sunset= current.senset
   // console.log(sunset,"seeee")

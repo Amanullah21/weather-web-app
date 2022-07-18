@@ -1,20 +1,15 @@
-import React from "react";
-import { useState } from "react";
-import { DebounceInput } from "react-debounce-input";
+import React from 'react'
+import TextField from "@mui/material/TextField";
+
 
 const App = () => {
-  let [state,setState] = useState('')
   return (
     <div>
-      <DebounceInput
-        debounceTimeout={300}
-        onChange={(event) =>setState({ value: event.target.value })}
-      />
-
-
-      <p>Value: {state.value}</p>
+      <TextField  label="Outlined" variant="outlined" />
+<TextField id="filled-basic" label="Filled" variant="filled" />
+<TextField id="standard-basic" label="Standard" variant="standard" />
     </div>
-  );
-};
+  )
+}
 
-export default App;
+export default App
