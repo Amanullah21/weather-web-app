@@ -3,49 +3,50 @@
   margin: 5px 20px;
   padding: 10px;
   border-radius: 10px;
-  box-shadow: 5px 5px 4px 6px #f0f0f0;
+  -webkit-box-shadow: -1px -1px 10px 8px #f0f0f0;
+  -moz-box-shadow: -1px -1px 10px 8px #f0f0f0;
+  box-shadow: -1px -1px 10px 8px #f0f0f0;
 }
 .current_temp {
   display: flex;
   padding-left: 20px;
   /* background-color: bisque; */
 }
-.hourly_sun{
-    margin-top: 10px;
-    margin-left: 20px;
+.hourly_sun {
+  margin-top: 10px;
+  margin-left: 20px;
 }
 
-.hourly_graph{
-    height: 150px;
+.hourly_graph {
+  height: 150px;
 }
-.pre_container{
-    height: 50px;
-    display: flex;
+.pre_container {
+  height: 50px;
+  display: flex;
 }
-.pre_container>div{
-    height: 40px;
-    border-radius: 5px;
-    background-color: #f5faff;
-    width: 45%;
-    margin: 10px;
-    
-    text-align: center;
-    padding-top: 4px;
+.pre_container > div {
+  height: 40px;
+  border-radius: 5px;
+  background-color: #f5faff;
+  width: 45%;
+  margin: 10px;
+
+  text-align: center;
+  padding-top: 4px;
 }
 
-.hourly_graph_sunset{
-    height: 230px;
-    margin-top: 15px;
-    border-radius: 10px;
+.hourly_graph_sunset {
+  height: 230px;
+  margin-top: 15px;
+  border-radius: 10px;
 }
-.hourly_graph_sunset > div{
-    margin: 5px;
-    display: flex;
-    gap: 30%;
-    text-align: center;
-    
+.hourly_graph_sunset > div {
+  margin: 5px;
+  display: flex;
+  gap: 30%;
+  text-align: center;
 }
-.hourly_graph_sunset > div>div{
-    width: 50%;
-    padding-bottom: 20px;
+.hourly_graph_sunset > div > div {
+  width: 50%;
+  padding-bottom: 20px;
 }
