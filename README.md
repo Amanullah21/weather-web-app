@@ -3,6 +3,8 @@
 It is Web Weather Web App,
 
 ## Home page 
+### Mobile view
+<img src="Demo img/Home page.jpg">
 
 In the project directory, you can run:
 Weather App through this link
