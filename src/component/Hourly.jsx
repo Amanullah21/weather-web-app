@@ -35,7 +35,7 @@ const Hourly = ({ current, cTemp }) => {
         id: "basic-bar",
       },
       xaxis: {
-        categories: ["6AM", "1PM", "7Pm"],
+        categories: ["6AM", time, "7Pm"],
       },
     },
     series1: [
