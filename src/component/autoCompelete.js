@@ -62,3 +62,4 @@ const stateCapital = [
 ];
 
 export default stateCapital;
+

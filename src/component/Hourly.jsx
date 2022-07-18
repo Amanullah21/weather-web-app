@@ -14,8 +14,8 @@ import {
 } from "recharts";
 import SunsetSunrise from "./SunsetSunrise";
 
-const Hourly = ({  current, pdata }) => {
-  
+const Hourly = ({  current, pdata, error }) => {
+  // console.log(error)
   //   const icon = current.weather[0].icon
   //   console.log(icon,'if')
   return (
@@ -40,7 +40,7 @@ const Hourly = ({  current, pdata }) => {
             <Tooltip />
 
             <Line
-              dataKey="temp"
+              dataKey="Temp"
               className="bold"
               stroke="#47adea"
               activeDot={{ r: 5 }}

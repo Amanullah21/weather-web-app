@@ -39,7 +39,7 @@ const Home = () => {
         setDaily(response.data.daily);
         setCurrent(response.data.current);
         setHourly(response.data.hourly);
-      }).catch(()=>setError(true))
+      })
 
     }
   }, [latitude, longitude]);
@@ -58,30 +58,37 @@ const Home = () => {
         setApiData(res.data);
         setlatitude(res.data.coord.lat);
         setlongitude(res.data.coord.lon);
+        setError(false)
       })
       .catch((err) => {
         console.log("err", err);
+        setError(true)
+        if(error){
+          alert("Enter Right Place Name")
+          setError(false)
+        }
       });
   };
+  
   useEffect(() => {
     getWeatherData(text);
   }, []);
   // console.log(hourly)
   const pdata = [
     {
-      temp: 21,
+      Temp: 21,
     },
     {
-      temp: 22,
+      Temp: 22,
     },
     {
-      temp: 24,
+      Temp: 24,
     },
     {
-      temp: 29,
+      Temp: 29,
     },
     {
-      temp: 35,
+      Temp: 35,
     },
   ];
 
@@ -105,7 +112,7 @@ const Home = () => {
                className="Bold"
               onSelect={(e) => setText(e.target.value)}
                 {...params}
-                label="Search Location"
+                label="Search Place"
                 InputProps={{
                   ...params.InputProps,
                   type: "search",
@@ -118,8 +125,8 @@ const Home = () => {
           <SearchIcon />
         </button>
       </div>
-      <WeeklyField daily={daily} />
-      <Hourly
+      <WeeklyField daily={daily}  error={error} />
+      <Hourly error={error}
         apiData={apiData}
         current={current}
         hourly={hourly}
