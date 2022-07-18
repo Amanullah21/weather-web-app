@@ -27,7 +27,7 @@ const Hourly = ({ current, cTemp }) => {
     series: [
       {
         name: "Temperature",
-        data: [cTemp - 6, cTemp - 3, cTemp - 1, cTemp, +cTemp + 1, cTemp - 3],
+        data: [cTemp - 5, cTemp - 3, cTemp - 1, cTemp, +cTemp + 1, cTemp - 3],
       },
     ],
     options1: {

@@ -1,6 +1,5 @@
 const stateCapital = [
   { title: "Goa" },
-  { title: "Kolkata" },
   { title: "Andhra Pradesh" },
   { title: "Assam" },
   { title: "Bihar" },
@@ -59,6 +58,7 @@ const stateCapital = [
   { title: "Lucknow" },
   { title: "Dehradun" },
   { title: "Gairsain" },
+  {title:"Pune"}
 ];
 
 export default stateCapital;

@@ -23,7 +23,6 @@ const Home = () => {
   let [hourly, setHourly] = useState([]);
   let [error, setError] = useState(false);
   let [cTemp, setCTemp] = useState(0);
-  // let [senSet,setSunSet] = useState(null)
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((pos) => {
@@ -35,7 +34,6 @@ const Home = () => {
     const finalApi = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=minutely&appid=${api_key}`;
     if (latitude !== "" && longitude !== "") {
       axios.get(finalApi).then((response) => {
-        // setApiData(response.data)
         setDaily(response.data.daily);
         setCurrent(response.data.current);
         setHourly(response.data.hourly);
@@ -62,7 +60,6 @@ const Home = () => {
         setError(false);
       })
       .catch((err) => {
-        console.log("err", err);
         setError(true);
         if (error) {
           alert("जगह का नाम गलत है दोबारा अच्छे से दाली");

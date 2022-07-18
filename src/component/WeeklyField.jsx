@@ -25,7 +25,7 @@ const WeeklyField = ({ daily, error }) => {
       {daily.map((ele, index) => {
         const dayCode = moment(ele.dt).day() + index;
         return (
-          <div className={style.Weekly_field_box}>
+          <div className={style.Weekly_field_box} key={index}>
             <div className="bold">{day[dayCode]}</div>
             <div className="bold">
               {(ele.temp.day - 273.15).toFixed()} <sup className="light">o</sup>
