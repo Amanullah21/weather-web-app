@@ -3,23 +3,19 @@ import Chart from "react-apexcharts";
 
 
 const SunsetSunrise = ({current}) => {
-  // const [sunrise,setSunrise] = useState(0)
-
-  // let sunset= current.senset
-  // console.log(sunset,"seeee")
   const [state, setState] = useState({
     options: {
       chart: {
         id: "basic-bar",
       },
       xaxis: {
-        categories: [9, 10, 13]
+        categories: [6, 12, 7]
       },
     },
     series: [
       {
-        name: "series-1",
-        data: [6,12,7],
+        name: "temp",
+        data: [28,35,27]
       },
     ],
   });

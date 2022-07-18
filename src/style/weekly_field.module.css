@@ -2,6 +2,7 @@
     height: 100px;   
     margin:20px 20px 5px 20px;
     display: flex;
+    font-size: 14px;
 }
 .Weekly_field_box{
     width: 15%;
@@ -15,3 +16,10 @@
     height: 30px;
     width: 30px;
 }
+
+@media screen and (max-width: 400px) {
+    .Weekly_field{
+        font-size: 12px;
+    }
+  }
+  
