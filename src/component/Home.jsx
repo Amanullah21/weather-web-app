@@ -11,6 +11,7 @@ import stateCapital from "./autoCompelete";
 import TextField from "@mui/material/TextField";
 import Stack from "@mui/material/Stack";
 import Autocomplete from "@mui/material/Autocomplete";
+import { DebounceInput } from "react-debounce-input";
 
 const Home = () => {
   const api_key = "f56f24967aaf51182d1d4df628297c6d";
@@ -68,7 +69,7 @@ const Home = () => {
 
   useEffect(() => {
     getWeatherData(text);
-  }, []);
+  }, [text]);
   const handleSearch = () => {
     getWeatherData(text);
   };
@@ -77,26 +78,12 @@ const Home = () => {
     <div className={style.home}>
       <div className={style1.input_box}>
         <PlaceIcon className={style1.location_icon} />
-        <Stack sx={{ width: 300 }}>
-          <Autocomplete
-            freeSolo
-            disableClearable
-            options={stateCapital.map((option) => option.title)}
-            renderInput={(params) => (
-              <TextField
-                variant="standard"
-                className="Bold"
-                onSelect={(e) => setText(e.target.value)}
-                {...params}
-                label="Search Place"
-                InputProps={{
-                  ...params.InputProps,
-                  type: "search",
-                }}
-              />
-            )}
-          />
-        </Stack>
+        <DebounceInput
+        minLength={2}
+        debounceTimeout={300}
+        options={stateCapital.map((option) => option.title)}
+        onChange={(ele) => setText(ele.target.value)}
+      />
         <button onClick={handleSearch}>
           <SearchIcon />
         </button>

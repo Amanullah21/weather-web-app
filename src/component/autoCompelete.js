@@ -57,8 +57,7 @@ const stateCapital = [
   { title: "Lucknow" },
   { title: "Dehradun" },
   { title: "Gairsain" },
-  {title:"Pune"}
+  { title: "Pune" },
 ];
 
 export default stateCapital;
-
