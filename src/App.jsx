@@ -1,23 +1,9 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { DebounceInput } from "react-debounce-input";
-import { useState } from "react";
-import stateCapital from "../src/component/autoCompelete";
+import React from 'react'
 
 const App = () => {
-  const [state, setState] = useState("");
   return (
-    <div>
-      <DebounceInput
-        minLength={2}
-        debounceTimeout={300}
-        options={stateCapital.map((option) => option.title)}
-        onChange={(ele) => setState(ele.target.value)}
-      />
+    <div>App</div>
+  )
+}
 
-      <p>Value: {state}</p>
-    </div>
-  );
-};
-
-export default App;
+export default App
