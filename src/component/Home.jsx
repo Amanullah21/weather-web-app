@@ -12,6 +12,7 @@ import TextField from "@mui/material/TextField";
 import Stack from "@mui/material/Stack";
 import Autocomplete from "@mui/material/Autocomplete";
 import { DebounceInput } from "react-debounce-input";
+import Location from "./Location";
 
 const Home = () => {
   const api_key = "f56f24967aaf51182d1d4df628297c6d";
@@ -24,6 +25,7 @@ const Home = () => {
   let [hourly, setHourly] = useState([]);
   let [error, setError] = useState(false);
   let [cTemp, setCTemp] = useState(0);
+  let [locationBtn, setLocationBtn] = useState(true);
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((pos) => {
@@ -66,36 +68,42 @@ const Home = () => {
         }
       });
   };
-
   useEffect(() => {
     getWeatherData(text);
   }, [text]);
   const handleSearch = () => {
     getWeatherData(text);
   };
+  const LoationHandler = () => {
+    setLocationBtn(true);
+    console.log(locationBtn);
+  };
 
   return (
     <div className={style.home}>
       <div className={style1.input_box}>
-        <PlaceIcon className={style1.location_icon} />
+        <PlaceIcon className={style1.location_icon} onClick={LoationHandler} />
         <DebounceInput
-        minLength={2}
-        debounceTimeout={300}
-        options={stateCapital.map((option) => option.title)}
-        onChange={(ele) => setText(ele.target.value)}
-      />
+          minLength={2}
+          debounceTimeout={300}
+          options={stateCapital.map((option) => option.title)}
+          onChange={(ele) => setText(ele.target.value)}
+        />
         <button onClick={handleSearch}>
           <SearchIcon />
         </button>
       </div>
       <WeeklyField daily={daily} error={error} />
-      <Hourly
+      {
+        locationBtn ? <Location/>:<Hourly
         error={error}
         apiData={apiData}
         current={current}
         hourly={hourly}
         cTemp={cTemp}
       />
+      }
+      
     </div>
   );
 };
