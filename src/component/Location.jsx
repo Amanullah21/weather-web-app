@@ -5,14 +5,15 @@ import CloseIcon from "@mui/icons-material/Close";
 
 /* Default position */
 const defaultPosition = {
-  lat: 25.609,
-  lng: 85.1343,
-};
+    lat: 23.323,
+    lng:32.434,
+  };
 
 class Location extends Component {
   constructor(props) {
     super(props);
-
+    
+   
     this.state = {
       position: {
         lat: 0,
@@ -24,9 +25,9 @@ class Location extends Component {
     this.handleLocationChange = this.handleLocationChange.bind(this);
   }
 
-  handleLocationChange({ position, address, places }) {
+  handleLocationChange({ position}) {
     // Set new location
-    this.setState({ position, address });
+    this.setState({ position });
   }
 
   render() {

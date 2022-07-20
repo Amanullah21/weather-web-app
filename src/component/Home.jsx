@@ -7,12 +7,10 @@ import style1 from "../style/input.module.css";
 import SearchIcon from "@mui/icons-material/Search";
 import PlaceIcon from "@mui/icons-material/Place";
 import stateCapital from "./autoCompelete";
+import CloseIcon from "@mui/icons-material/Close";
+import LocationPicker from "react-location-picker";
 
-import TextField from "@mui/material/TextField";
-import Stack from "@mui/material/Stack";
-import Autocomplete from "@mui/material/Autocomplete";
 import { DebounceInput } from "react-debounce-input";
-import Location from "./Location";
 
 const Home = () => {
   const api_key = "f56f24967aaf51182d1d4df628297c6d";
@@ -25,7 +23,7 @@ const Home = () => {
   let [hourly, setHourly] = useState([]);
   let [error, setError] = useState(false);
   let [cTemp, setCTemp] = useState(0);
-  let [locationBtn, setLocationBtn] = useState(true);
+  let [locationBtn, setLocationBtn] = useState(false);
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((pos) => {
@@ -78,6 +76,10 @@ const Home = () => {
     setLocationBtn(true);
     console.log(locationBtn);
   };
+  const defaultPosition = {
+    lat: latitude,
+    lng: longitude,
+  };
 
   return (
     <div className={style.home}>
@@ -94,16 +96,25 @@ const Home = () => {
         </button>
       </div>
       <WeeklyField daily={daily} error={error} />
-      {
-        locationBtn ? <Location/>:<Hourly
-        error={error}
-        apiData={apiData}
-        current={current}
-        hourly={hourly}
-        cTemp={cTemp}
-      />
-      }
-      
+      {locationBtn ? (
+        <div className={style.location}>
+        <LocationPicker
+          containerElement={<div style={{ height: "450px" }} />}
+          mapElement={<div style={{ height: "450px" }} />}
+          defaultPosition={defaultPosition}
+          // onChange={this.handleLocationChange}
+        />
+        <button onClick={() =>setLocationBtn(false)}><CloseIcon/></button>
+        </div>
+      ) : (
+        <Hourly
+          error={error}
+          apiData={apiData}
+          current={current}
+          hourly={hourly}
+          cTemp={cTemp}
+        />
+      )}
     </div>
   );
 };
