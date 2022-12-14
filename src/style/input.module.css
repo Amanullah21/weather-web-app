@@ -5,6 +5,7 @@
     width: 300px;
     display: flex;
     padding: 2px;
+    /* padding-left: 20px; */
     border-radius: 10px;
     -webkit-box-shadow: -1px -1px 10px 8px #f0f0f0;
   -moz-box-shadow: -1px -1px 10px 8px #f0f0f0;
@@ -28,6 +29,9 @@
     width: 200px;
 }
 .input_box > input:active{
+    border: none;
+}
+.input_box>input::before{
     border: none;
 }
 .input_box >button{

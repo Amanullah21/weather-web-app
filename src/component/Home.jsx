@@ -86,6 +86,8 @@ const Home = () => {
       <div className={style1.input_box}>
         <PlaceIcon className={style1.location_icon} onClick={LoationHandler} />
         <DebounceInput
+        className={style1.input}
+          placeholder={`Search Place`}
           minLength={2}
           debounceTimeout={300}
           options={stateCapital.map((option) => option.title)}
@@ -98,13 +100,14 @@ const Home = () => {
       <WeeklyField daily={daily} error={error} />
       {locationBtn ? (
         <div className={style.location}>
-        <LocationPicker
-          containerElement={<div style={{ height: "450px" }} />}
-          mapElement={<div style={{ height: "450px" }} />}
-          defaultPosition={defaultPosition}
-          // onChange={this.handleLocationChange}
-        />
-        <button onClick={() =>setLocationBtn(false)}><CloseIcon/></button>
+          <LocationPicker
+            containerElement={<div style={{ height: "450px" }} />}
+            mapElement={<div style={{ height: "450px" }} />}
+            defaultPosition={defaultPosition}
+          />
+          <button onClick={() => setLocationBtn(false)}>
+            <CloseIcon />
+          </button>
         </div>
       ) : (
         <Hourly

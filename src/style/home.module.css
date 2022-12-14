@@ -1,29 +1,29 @@
-.home{
-    background-color: white;
-    margin: 20px auto;
-    width: 350px;
-    height: 730px;
-    border-radius: 30px;
-    padding-top: 10px;
-    border: 4px #f2f2f3 solid;
+.home {
+  background-color: white;
+  margin: 20px auto;
+  width: 350px;
+  height: 730px;
+  border-radius: 30px;
+  padding-top: 10px;
+  border: 4px #f2f2f3 solid;
 }
-.location{
-    position: absolute;
-    top:220px;
-    
-    /* height: 450px; */
-    width: 350px;
-    /* background-color: aquamarine; */
+.location {
+  position: absolute;
+  top: 220px;
+
+  /* height: 450px; */
+  width: 350px;
+  /* background-color: aquamarine; */
 }
-.location >button{
-    height: 70px;
-    width: 70px;
-    border-radius: 40px;
-    margin-top: 10px;
-    margin-left: 40%;
-    /* border: none; */
+.location > button {
+  height: 70px;
+  width: 70px;
+  border-radius: 40px;
+  margin-top: 10px;
+  margin-left: 40%;
+  /* border: none; */
 }
-.location >button:hover{
-    background-color: black;
-    color: white;
+.location > button:hover {
+  background-color: black;
+  color: white;
 }
